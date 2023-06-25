@@ -20,5 +20,8 @@ namespace Prize_Collector_Console_Game
             Console.Write(Symbol);
             Console.ResetColor();
         }
+		
+		public bool IsLocatedAtPosition(uint left, uint top) => Left == left && Top == top;
+        public bool IsLocatedAtPosition(Position position) => IsLocatedAtPosition(position.Left, position.Top);
     }
 }
