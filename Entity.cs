@@ -12,5 +12,13 @@ namespace Prize_Collector_Console_Game
         }
 
         public Entity(Position pos, char symbol = '*', ConsoleColor color = ConsoleColor.Gray) : this(pos.Left, pos.Top, symbol, color) { }
+		
+		public void Print()
+        {
+            Console.SetCursorPosition((int)Left, (int)Top);
+            Console.ForegroundColor = Color;
+            Console.Write(Symbol);
+            Console.ResetColor();
+        }
     }
 }
