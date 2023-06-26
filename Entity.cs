@@ -5,13 +5,11 @@ namespace Prize_Collector_Console_Game
         public char Symbol { get; set; }
         public ConsoleColor Color { get; set; }
 
-        public Entity(uint left = 0, uint top = 0, char symbol = '*', ConsoleColor color = ConsoleColor.Gray) : base(left, top)
+        public Entity(Position position, char symbol = '*', ConsoleColor color = ConsoleColor.Gray) : base(position.Left, position.Top)
         {
             Symbol = symbol;
             Color = color;
         }
-
-        public Entity(Position pos, char symbol = '*', ConsoleColor color = ConsoleColor.Gray) : this(pos.Left, pos.Top, symbol, color) { }
 		
 		public void Print()
         {
@@ -21,7 +19,6 @@ namespace Prize_Collector_Console_Game
             Console.ResetColor();
         }
 		
-		public bool IsLocatedAtPosition(uint left, uint top) => Left == left && Top == top;
-        public bool IsLocatedAtPosition(Position position) => IsLocatedAtPosition(position.Left, position.Top);
+        public bool IsLocatedAtPosition(Position position) => Left == position.Left && Top == position.Top;
     }
 }
