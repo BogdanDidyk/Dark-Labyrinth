@@ -10,4 +10,9 @@ namespace Prize_Collector_Console_Game
 		Left = position.Left;
 		Top = position.Top;
 	}
+	
+	public void MoveTop() => Top--;
+	public void MoveRight() => Left++;
+	public void MoveBottom() => Top++;
+	public void MoveLeft() => Left--;
 }
