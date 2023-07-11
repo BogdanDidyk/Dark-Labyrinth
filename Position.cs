@@ -1,9 +1,9 @@
 namespace Prize_Collector_Console_Game
 {
-	class Position
+    struct Position
     {
-        public uint Left { get; protected set; }
-        public uint Top { get; protected set; }
+        public uint Left { get; set; }
+        public uint Top { get; set; }
 
         public Position(uint left = 0, uint top = 0)
         {
