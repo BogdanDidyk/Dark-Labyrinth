@@ -1,24 +1,22 @@
 namespace Prize_Collector_Console_Game
 {
-    class Entity : Position
+    class Entity
     {
         public char Symbol { get; set; }
         public ConsoleColor Color { get; set; }
 
-        public Entity(Position position, char symbol = '*', ConsoleColor color = ConsoleColor.Gray) : base(position.Left, position.Top)
+        public Entity(char symbol = '*', ConsoleColor color = ConsoleColor.Gray)
         {
             Symbol = symbol;
             Color = color;
         }
-		
-		public void Print()
+
+        public void PrintAtPosition(Position position)
         {
-            Console.SetCursorPosition((int)Left, (int)Top);
+            Console.SetCursorPosition((int)position.Left, (int)position.Top);
             Console.ForegroundColor = Color;
             Console.Write(Symbol);
             Console.ResetColor();
         }
-		
-        public bool IsLocatedAtPosition(Position position) => Left == position.Left && Top == position.Top;
     }
 }
