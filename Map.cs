@@ -25,5 +25,26 @@ namespace Prize_Collector_Console_Game
             Width = keys.Max(wall => wall.Left) + 1;
             Height = keys.Max(wall => wall.Top) + 1;
         }
+		
+		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
+        {
+            string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
+            Dictionary<Position, Wall> wallPositions = new Dictionary<Position, Wall>();
+
+            for (uint top = 0; top < lines.Length; top++)
+            {
+                for (uint left = 0; left < lines[top].Length; left++)
+                {
+                    char symbol = lines[top][(int)left];
+                    if (symbol == wallSymbolInFile)
+                    {
+                        Position position = new Position(left, top);
+                        wallPositions.Add(position, new Wall(wallSymbolToSet, wallColorToSet));
+                    }
+                }
+            }
+
+            return new Map(wallPositions);
+        }
     }
 }
