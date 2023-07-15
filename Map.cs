@@ -13,6 +13,9 @@ namespace Prize_Collector_Console_Game
         public uint HeroesCount { get => 1u; }
         public uint FreePositionsCount { get => Width * Height - WallsCount - PrizesCount - HeroesCount; }
 		
+		public Hero Hero { get; set; }
+        public Position HeroPosition { get; set; }
+		
 		public Map(Dictionary<Position, Wall> wallPositions)
         {
             rnd = new Random();
