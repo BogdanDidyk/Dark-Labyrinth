@@ -26,6 +26,30 @@ namespace Prize_Collector_Console_Game
             Height = keys.Max(wall => wall.Top) + 1;
         }
 		
+		public bool HasWallAtPosition(Position wallPosition) => walls.ContainsKey(wallPosition);
+        public Wall GetWallFromPosition(Position wallPosition) => walls.GetValueOrDefault(wallPosition, null);
+
+        public bool HasPrizeAtPosition(Position prizePosition) => prizes.ContainsKey(prizePosition);
+        public Prize GetPrizeFromPosition(Position prizePosition) => prizes.GetValueOrDefault(prizePosition, null);
+
+        public bool HasHeroAtPosition(Position heroPosition) => HeroPosition.Left == heroPosition.Left && HeroPosition.Top == heroPosition.Top;
+
+        public void AddPrizeAtPosition(Position prizePosition, Prize prize)
+        {
+            if (!HasPrizeAtPosition(prizePosition))
+            {
+                prizes.Add(prizePosition, prize);
+            }
+        }
+
+        public void RemovePrizeAtPosition(Position prizePosition)
+        {
+            if (HasPrizeAtPosition(prizePosition))
+            {
+                prizes.Remove(prizePosition);
+            }
+        }
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
