@@ -50,6 +50,18 @@ namespace Prize_Collector_Console_Game
             }
         }
 		
+		public bool IsTopEdgeAt(Position pos) => pos.Top == 0;
+        public bool IsRightEdgeAt(Position pos) => pos.Left == Width - 1;
+        public bool IsBottomEdgeAt(Position pos) => pos.Top == Height - 1;
+        public bool IsLeftEdgeAt(Position pos) => pos.Left == 0;
+
+        public bool IsTopDeadEndAt(Position pos) => IsTopEdgeAt(pos) || HasWallAtPosition(new Position(pos.Left, pos.Top - 1));
+        public bool IsRightDeadEndAt(Position pos) => IsRightEdgeAt(pos) || HasWallAtPosition(new Position(pos.Left + 1, pos.Top));
+        public bool IsBottomDeadEndAt(Position pos) => IsBottomEdgeAt(pos) || HasWallAtPosition(new Position(pos.Left, pos.Top + 1));
+        public bool IsLeftDeadEndAt(Position pos) => IsLeftEdgeAt(pos) || HasWallAtPosition(new Position(pos.Left - 1, pos.Top));
+
+        public bool IsFreePositionAt(Position pos) => !(HasWallAtPosition(pos) || HasPrizeAtPosition(pos) || HasHeroAtPosition(pos));
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
