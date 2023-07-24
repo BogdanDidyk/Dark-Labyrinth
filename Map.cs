@@ -72,6 +72,16 @@ namespace Prize_Collector_Console_Game
             }
         }
 		
+		public void PrintPrizes()
+        {
+            foreach (var keyValuePair in prizes)
+            {
+                Position position = keyValuePair.Key;
+                Prize prize = keyValuePair.Value;
+                prize.PrintAtPosition(position);
+            }
+        }
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
