@@ -62,6 +62,16 @@ namespace Prize_Collector_Console_Game
 
         public bool IsFreePositionAt(Position pos) => !(HasWallAtPosition(pos) || HasPrizeAtPosition(pos) || HasHeroAtPosition(pos));
 		
+		public void PrintWalls()
+        {
+            foreach (var keyValuePair in walls)
+            {
+                Position position = keyValuePair.Key;
+                Wall wall = keyValuePair.Value;
+                wall.PrintAtPosition(position);
+            }
+        }
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
