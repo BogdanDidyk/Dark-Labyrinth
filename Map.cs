@@ -82,6 +82,11 @@ namespace Prize_Collector_Console_Game
             }
         }
 		
+		public void PrintHero()
+        {
+            Hero.PrintAtPosition(HeroPosition);
+        }
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
