@@ -87,6 +87,22 @@ namespace Prize_Collector_Console_Game
             Hero.PrintAtPosition(HeroPosition);
         }
 		
+		public Position GetRandomFreePosition()
+        {
+            uint left, top;
+            Position pos;
+
+            do
+            {
+                left = (uint)rnd.Next((int)Width);
+                top = (uint)rnd.Next((int)Height);
+                pos = new Position(left, top);
+            }
+            while (!IsFreePositionAt(pos));
+
+            return pos;
+        }
+		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
             string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
