@@ -17,5 +17,11 @@ namespace Prize_Collector_Console_Game
             LightingColor = lightingColor;
             VisibilityRadius = visibilityRadius;
         }
+		
+		private void CreateHero()
+        {
+            Map.Hero = new Hero('↑', ConsoleColor.White);
+            Map.HeroPosition = Map.GetRandomFreePosition();
+        }
 	}
 }
