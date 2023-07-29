@@ -23,5 +23,23 @@ namespace Prize_Collector_Console_Game
             Map.Hero = new Hero('↑', ConsoleColor.White);
             Map.HeroPosition = Map.GetRandomFreePosition();
         }
+		
+		private void CreatePrizes(uint count = 3)
+        {
+            if (count <= 0) count = 1;
+
+            for (int i = 0; i < count; i++)
+            {
+                if (Map.FreePositionsCount > 0)
+                {
+                    PrizeType prizeType = GetRandomPrizeType();
+                    ConsoleColor color = GetPrizeColor(prizeType);
+                    Position position = Map.GetRandomFreePosition();
+                    Prize prize = new Prize('●', color, prizeType);
+
+                    Map.AddPrizeAtPosition(position, prize);
+                }
+            }
+        }
 	}
 }
