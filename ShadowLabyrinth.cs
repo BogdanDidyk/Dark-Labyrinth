@@ -16,6 +16,9 @@ namespace Prize_Collector_Console_Game
             DimmingColor = dimmingColor;
             LightingColor = lightingColor;
             VisibilityRadius = visibilityRadius;
+			
+			CreateHero();
+            CreatePrizes(prizesCount);
         }
 		
 		private void CreateHero()
