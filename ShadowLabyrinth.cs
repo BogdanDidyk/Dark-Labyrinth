@@ -67,5 +67,19 @@ namespace Prize_Collector_Console_Game
 
             return color;
         }
+		
+		private int getRandomIndex(double[] probabilities)
+        {
+            double sum = probabilities.Sum();
+            int len = probabilities.Length;
+            double randomValue = rnd.NextDouble();
+
+            double probability = 0.0;
+            int ind = 0;
+
+            while (ind < len && randomValue >= (probability += probabilities[ind] / sum)) ind++;
+
+            return ind;
+        }
 	}
 }
