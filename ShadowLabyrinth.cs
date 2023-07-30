@@ -44,5 +44,28 @@ namespace Prize_Collector_Console_Game
                 }
             }
         }
+		
+		private ConsoleColor GetPrizeColor(PrizeType prizeType)
+        {
+            ConsoleColor color = ConsoleColor.Gray;
+
+            switch (prizeType)
+            {
+                case PrizeType.Silver:
+                    color = ConsoleColor.Gray;
+                    break;
+                case PrizeType.Gold:
+                    color = ConsoleColor.DarkYellow;
+                    break;
+                case PrizeType.Diamond:
+                    color = ConsoleColor.Blue;
+                    break;
+                default:
+                    color = ConsoleColor.White;
+                    break;
+            }
+
+            return color;
+        }
 	}
 }
