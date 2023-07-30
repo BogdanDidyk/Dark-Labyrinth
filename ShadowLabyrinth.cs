@@ -81,5 +81,17 @@ namespace Prize_Collector_Console_Game
 
             return ind;
         }
+		
+		private PrizeType GetRandomPrizeType()
+        {
+            // Probability for Silver, Gold and Diamond prizes
+            double[] probabilities = new double[] { 0.5, 0.375, 0.125 };
+            string[] prizeNames = Enum.GetNames(typeof(PrizeType));
+
+            int randomIndex = getRandomIndex(probabilities);
+            string randomPrize = prizeNames[randomIndex];
+
+            return (PrizeType)Enum.Parse(typeof(PrizeType), randomPrize);
+        }
 	}
 }
