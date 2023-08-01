@@ -93,5 +93,44 @@ namespace Prize_Collector_Console_Game
 
             return (PrizeType)Enum.Parse(typeof(PrizeType), randomPrize);
         }
+		
+		private void ControlHero(ConsoleKey key)
+        {
+            if (key == ConsoleKey.UpArrow)
+            {
+                if (!Map.IsTopDeadEndAt(Map.HeroPosition))
+                {
+                    Map.HeroPosition = new Position(Map.HeroPosition.Left, Map.HeroPosition.Top - 1);
+                }
+                Map.Hero.Symbol = '↑';
+            }
+
+            if (key == ConsoleKey.RightArrow)
+            {
+                if (!Map.IsRightDeadEndAt(Map.HeroPosition))
+                {
+                    Map.HeroPosition = new Position(Map.HeroPosition.Left + 1, Map.HeroPosition.Top);
+                }
+                Map.Hero.Symbol = '→';
+            }
+
+            if (key == ConsoleKey.DownArrow)
+            {
+                if (!Map.IsBottomDeadEndAt(Map.HeroPosition))
+                {
+                    Map.HeroPosition = new Position(Map.HeroPosition.Left, Map.HeroPosition.Top + 1);
+                }
+                Map.Hero.Symbol = '↓';
+            }
+
+            if (key == ConsoleKey.LeftArrow)
+            {
+                if (!Map.IsLeftDeadEndAt(Map.HeroPosition))
+                {
+                    Map.HeroPosition = new Position(Map.HeroPosition.Left - 1, Map.HeroPosition.Top);
+                }
+                Map.Hero.Symbol = '←';
+            }
+        }
 	}
 }
