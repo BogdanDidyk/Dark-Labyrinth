@@ -132,5 +132,15 @@ namespace Prize_Collector_Console_Game
                 Map.Hero.Symbol = '←';
             }
         }
+		
+		private void PaintWallAtPosition(Position position, ConsoleColor color = ConsoleColor.DarkGray)
+        {
+            if (Map.HasWallAtPosition(position))
+            {
+                Wall wall = Map.GetWallFromPosition(position);
+                wall.Color = color;
+                wall.PrintAtPosition(position);
+            }
+        }
 	}
 }
