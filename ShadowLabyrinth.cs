@@ -142,5 +142,17 @@ namespace Prize_Collector_Console_Game
                 wall.PrintAtPosition(position);
             }
         }
+		
+		private void PaintSurroundedWalls(Position position, ConsoleColor color = ConsoleColor.DarkGray)
+        {
+            for (int left = (int)-VisibilityRadius; left <= VisibilityRadius; left++)
+            {
+                for (int top = (int)-VisibilityRadius; top <= VisibilityRadius; top++)
+                {
+                    Position surroundedPosition = new Position(position.Left + (uint)left, position.Top + (uint)top);
+                    PaintWallAtPosition(surroundedPosition, color);
+                }
+            }
+        }
 	}
 }
