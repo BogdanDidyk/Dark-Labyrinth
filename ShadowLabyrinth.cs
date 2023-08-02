@@ -154,5 +154,12 @@ namespace Prize_Collector_Console_Game
                 }
             }
         }
+		
+		private void PrintColoredSymbol(char symbol, ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(symbol);
+            Console.ResetColor();
+        }
 	}
 }
