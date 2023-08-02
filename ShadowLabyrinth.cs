@@ -161,5 +161,28 @@ namespace Prize_Collector_Console_Game
             Console.Write(symbol);
             Console.ResetColor();
         }
+		
+		private void ShowRules()
+        {
+            Console.WriteLine("Press the arrow keys on the keyboard to control the hero.");
+            Console.WriteLine("Control the hero to get to the Prize.\n");
+
+            PrintColoredSymbol(Map.Hero.Symbol, Map.Hero.Color);
+            Console.WriteLine(" – Hero symbol");
+
+            Array prizeNames = Enum.GetValues(typeof(PrizeType));
+            foreach (object name in prizeNames)
+            {
+                PrizeType prizeType = (PrizeType)Enum.Parse(typeof(PrizeType), name.ToString(), true);
+                ConsoleColor color = GetPrizeColor(prizeType);
+
+                PrintColoredSymbol('●', color);
+                Console.WriteLine($" – {name} symbol, gives {(uint)(PrizeType)name} scores");
+            }
+
+            Console.WriteLine("\n\nPress any key to begin...");
+            Console.ReadKey(true);
+            Console.Clear();
+        }
 	}
 }
