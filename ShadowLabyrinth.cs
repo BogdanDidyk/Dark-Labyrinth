@@ -184,5 +184,10 @@ namespace Prize_Collector_Console_Game
             Console.ReadKey(true);
             Console.Clear();
         }
+		
+		private void ShowScores()
+        {
+            Console.Title = $"Scores: {Scores}";
+        }
 	}
 }
