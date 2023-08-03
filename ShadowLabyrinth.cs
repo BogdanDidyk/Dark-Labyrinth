@@ -199,5 +199,14 @@ namespace Prize_Collector_Console_Game
         {
             Console.SetWindowSize((int)Map.Width, (int)Map.Height);
         }
+		
+		private void StartInit()
+        {
+            ShowRules();
+            ChangeWindowSize();
+            ShowScores();
+            Map.PrintWalls();
+            Map.PrintPrizes();
+        }
 	}
 }
