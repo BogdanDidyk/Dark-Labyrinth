@@ -194,5 +194,10 @@ namespace Prize_Collector_Console_Game
         {
             Scores += (uint)prizeType;
         }
+		
+		private void ChangeWindowSize()
+        {
+            Console.SetWindowSize((int)Map.Width, (int)Map.Height);
+        }
 	}
 }
