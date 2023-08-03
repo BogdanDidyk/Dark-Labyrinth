@@ -189,5 +189,10 @@ namespace Prize_Collector_Console_Game
         {
             Console.Title = $"Scores: {Scores}";
         }
+		
+		private void UpdateScores(PrizeType prizeType)
+        {
+            Scores += (uint)prizeType;
+        }
 	}
 }
