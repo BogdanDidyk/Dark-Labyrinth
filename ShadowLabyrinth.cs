@@ -222,5 +222,45 @@ namespace Prize_Collector_Console_Game
 
             prize.PrintAtPosition(newPrizePosition);
         }
+		
+		public void Begin()
+        {
+            StartInit();
+
+            ConsoleKey key;
+            Position prevHeroPosition = new Position();
+            Entity spaceSymbol;
+
+            do
+            {
+                Map.PrintHero();
+                if (!Map.HasHeroAtPosition(prevHeroPosition))
+                {
+                    PaintSurroundedWalls(Map.HeroPosition, LightingColor);
+                }
+
+                prevHeroPosition = Map.HeroPosition;
+                spaceSymbol = new Entity(' ');
+
+                key = Console.ReadKey(true).Key;
+                ControlHero(key);
+
+                if (!Map.HasHeroAtPosition(prevHeroPosition))
+                {
+                    spaceSymbol.PrintAtPosition(prevHeroPosition);
+                    PaintSurroundedWalls(prevHeroPosition, DimmingColor);
+                }
+
+                if (Map.HasPrizeAtPosition(Map.HeroPosition))
+                {
+                    Prize prize = Map.GetPrizeFromPosition(Map.HeroPosition);
+
+                    UpdateScores(prize.PrizeType);
+                    ChangePrize(prize);
+                    ShowScores();
+                }
+            }
+            while (key != ConsoleKey.Escape);
+        }
 	}
 }
