@@ -208,5 +208,19 @@ namespace Prize_Collector_Console_Game
             Map.PrintWalls();
             Map.PrintPrizes();
         }
+		
+		private void ChangePrize(Prize prize)
+        {
+            Position newPrizePosition = Map.GetRandomFreePosition();
+            PrizeType prizeType = GetRandomPrizeType();
+
+            prize.PrizeType = prizeType;
+            prize.Color = GetPrizeColor(prizeType);
+
+            Map.RemovePrizeAtPosition(Map.HeroPosition);
+            Map.AddPrizeAtPosition(newPrizePosition, prize);
+
+            prize.PrintAtPosition(newPrizePosition);
+        }
 	}
 }
