@@ -105,7 +105,7 @@ namespace Prize_Collector_Console_Game
 		
 		public static Map LoadFromTxtFile(string pathToFile, char wallSymbolInFile = '*', char wallSymbolToSet = '*', ConsoleColor wallColorToSet = ConsoleColor.Gray)
         {
-            string[] lines = File.ReadAllLines(pathToFile, Encoding.Default);
+            string[] lines = File.ReadAllLines(pathToFile, System.Text.Encoding.Default);
             Dictionary<Position, Wall> wallPositions = new Dictionary<Position, Wall>();
 
             for (uint top = 0; top < lines.Length; top++)
