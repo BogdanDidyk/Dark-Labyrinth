@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace Dark_Labyrinth
 {
@@ -9,7 +8,6 @@ namespace Dark_Labyrinth
         {
             Console.CursorVisible = false;
             Console.OutputEncoding = Encoding.Unicode;
-
             
             try
             {
@@ -24,11 +22,9 @@ namespace Dark_Labyrinth
             {
                 Console.WriteLine("Something went wrong... Try to restart the game.");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
             }
 
             Console.Read();
         }
     }
 }
-
