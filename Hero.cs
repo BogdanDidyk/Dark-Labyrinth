@@ -1,4 +1,4 @@
-namespace Prize_Collector_Console_Game
+namespace Dark_Labyrinth
 {
 	class Hero : Entity
     {

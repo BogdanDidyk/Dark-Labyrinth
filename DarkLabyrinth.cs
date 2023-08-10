@@ -1,6 +1,6 @@
-namespace Prize_Collector_Console_Game
+namespace Dark_Labyrinth
 {
-	class ShadowLabyrinth
+	class DarkLabyrinth
     {
 		private Random rnd = new Random();
 
@@ -10,7 +10,7 @@ namespace Prize_Collector_Console_Game
         public ConsoleColor LightingColor { get; private set; }
         public uint Scores { get; private set; }
 		
-	    public ShadowLabyrinth(Map map, ConsoleColor dimmingColor = ConsoleColor.Black, ConsoleColor lightingColor = ConsoleColor.DarkGray, uint visibilityRadius = 1, uint prizesCount = 1)
+	    public DarkLabyrinth(Map map, ConsoleColor dimmingColor = ConsoleColor.Black, ConsoleColor lightingColor = ConsoleColor.DarkGray, uint visibilityRadius = 1, uint prizesCount = 1)
         {
             Map = map;
             DimmingColor = dimmingColor;

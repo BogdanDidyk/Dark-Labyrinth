@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Prize_Collector_Console_Game
+namespace Dark_Labyrinth
 {
     class Program
     {
@@ -17,7 +17,7 @@ namespace Prize_Collector_Console_Game
                 ConsoleColor lightingColor = ConsoleColor.DarkGray;
 
                 Map map = Map.LoadFromTxtFile("map.txt", '*', '█', dimmingColor);
-                ShadowLabyrinth game = new ShadowLabyrinth(map, dimmingColor, lightingColor, 2, 10);
+                DarkLabyrinth game = new DarkLabyrinth(map, dimmingColor, lightingColor, 2, 10);
                 game.Begin();
             }
             catch (Exception ex)

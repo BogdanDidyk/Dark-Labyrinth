@@ -1,4 +1,4 @@
-namespace Prize_Collector_Console_Game
+namespace Dark_Labyrinth
 {
     public enum PrizeType : uint { Silver = 3, Gold = 8, Diamond = 17 }
 
